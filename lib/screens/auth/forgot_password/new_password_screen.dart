@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinput/pinput.dart';
 
 import '../../../constants/exports.dart';
 import '../../../controllers/forgot_pass_controller.dart';
-import 'new_password_screen.dart';
+import '../login/login_screen.dart';
 
-class OTPScreen extends GetView<ForgotPasswordController> {
-  const OTPScreen({Key? key}) : super(key: key);
+class NewPasswordScreen extends GetView<ForgotPasswordController> {
+  const NewPasswordScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +72,7 @@ class OTPScreen extends GetView<ForgotPasswordController> {
                 padding: EdgeInsets.symmetric(
                     horizontal: screenHeight(context) * 0.024),
                 child: Text(
-                  'Enter your confirmation code and your new password. Make sure not to lose it again',
+                  'Please Enter your new password. Now, make sure not to lose it again',
                   textAlign: TextAlign.center,
                   style: poppinsRegular.copyWith(
                     fontSize: 13.0,
@@ -82,39 +81,40 @@ class OTPScreen extends GetView<ForgotPasswordController> {
                 ),
               ),
 
-              /// otp field
+              /// new password field
               SizedBox(height: screenHeight(context) * 0.04),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.024),
-                child: Pinput(
-                  length: 4,
-                  controller: controller.confirmationCodeController,
-                  closeKeyboardWhenCompleted: false,
-                  defaultPinTheme: PinTheme(
-                    height: 60.0,
-                    width: 50.0,
-                    textStyle: poppinsBold.copyWith(
-                      fontSize: 30.0,
-                      color: AppColors.blackColor,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: AppColors.whiteColor,
-                    )
-                  ),
+              CustomTextField(
+                controller: controller.newPasswordController,
+                hintText: 'New Password',
+                topContentPadding: 16.0,
+                prefixIcon: const Icon(
+                  Icons.lock,
+                  color: AppColors.greyColor,
                 ),
               ),
 
-              /// Next Button
+              /// confirm new password field
+              const SizedBox(height: 16.0),
+              CustomTextField(
+                controller: controller.confirmPasswordController,
+                hintText: 'Confirm New Password',
+                topContentPadding: 16.0,
+                prefixIcon: const Icon(
+                  Icons.lock,
+                  color: AppColors.greyColor,
+                ),
+              ),
+
+              /// Save Changes Button
               SizedBox(height: screenHeight(context) * 0.04),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: screenHeight(context) * 0.024),
                 child: CustomButton(
                   onTap: () {
-                    Get.to(const NewPasswordScreen());
+                    Get.to(const LoginScreen());
                   },
-                  btnText: 'Next',
+                  btnText: 'Save Changes',
                 ),
               ),
             ],
