@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:project_app/constants/exports.dart';
 
-class SignupSuccessScreen extends StatelessWidget {
+import '../../controllers/signup_success_controller.dart';
+
+
+class SignupSuccessScreen extends GetView<SignupSuccessController>{
   const SignupSuccessScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.put(SignupSuccessController());
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
 

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:project_app/constants/exports.dart';
 
-class LoginSuccessScreen extends StatelessWidget {
+import '../../controllers/login_success_controller.dart';
+
+class LoginSuccessScreen extends GetView<LoginSuccessController> {
   const LoginSuccessScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.put(LoginSuccessController());
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
 
