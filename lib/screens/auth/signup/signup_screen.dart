@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_app/screens/signup_success/signup_success_screen.dart';
 
 import '../../../constants/exports.dart';
 import '../../../controllers/signup_controller.dart';
@@ -70,7 +71,9 @@ class SignupScreen extends GetView<SignupController> {
                   padding: EdgeInsets.symmetric(
                       horizontal: screenHeight(context) * 0.024),
                   child: CustomButton(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const SignupSuccessScreen());
+                    },
                     btnText: 'Register Account',
                   ),
                 ),
