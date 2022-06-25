@@ -12,7 +12,7 @@ class SplashScreen extends GetView<SplashController> {
     Get.put(SplashController());
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      
+
       body: SizedBox(
         height: screenHeight(context),
         width: screenWidth(context),
@@ -21,7 +21,7 @@ class SplashScreen extends GetView<SplashController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(AppImages.appLogo),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 6.0),
             Text('Welcome to StudyGroup',
               textAlign: TextAlign.center,
               style: poppinsBold.copyWith(
