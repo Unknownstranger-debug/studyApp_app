@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_app/screens/login_success/login_success_screen.dart';
 
 import '../../../constants/exports.dart';
 import '../../../controllers/login_controller.dart';
@@ -78,7 +79,9 @@ class LoginScreen extends GetView<LoginController> {
                   padding: EdgeInsets.symmetric(
                       horizontal: screenHeight(context) * 0.024),
                   child: CustomButton(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const LoginSuccessScreen());
+                    },
                     btnText: 'Login',
                   ),
                 ),
