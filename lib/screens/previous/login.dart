@@ -1,5 +1,6 @@
+/*
 import 'package:flutter/material.dart';
-import 'package:project_app/screens/home_page.dart';
+import 'package:project_app/screens/previous/home_page.dart';
 import 'package:project_app/screens/sign_up.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -149,3 +150,4 @@ Widget inputFile({label, obscureText = false}) {
     ],
   );
 }
+*/

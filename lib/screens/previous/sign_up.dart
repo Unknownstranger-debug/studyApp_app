@@ -1,6 +1,7 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:project_app/screens/login.dart';
-import 'package:project_app/screens/register_successful.dart';
+import 'package:project_app/screens/previous/register_successful.dart';
 
 
 class SignScreen extends StatelessWidget {
@@ -168,4 +169,4 @@ Widget inputFile({label, obscureText = false}) {
       )
     ],
   );
-}
+}*/

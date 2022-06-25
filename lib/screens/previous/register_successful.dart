@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:project_app/screens/more_info.dart';
+import 'package:project_app/screens/previous/more_info.dart';
 
 class RegisterSuccessScreen extends StatefulWidget {
   static String routeName = '/registersuccess';
