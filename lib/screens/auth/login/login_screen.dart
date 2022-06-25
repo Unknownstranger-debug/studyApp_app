@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_app/widgets/custom_button.dart';
 
 import '../../../constants/exports.dart';
 import '../../../controllers/login_controller.dart';
+import '../signup/signup_screen.dart';
 
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class LoginScreen extends GetView<LoginController> {
               /// register now texts
               const SizedBox(height: 8.0),
               Text(
-                'Don\'t have an account? \nRegister one now',
+                'Welcome Back \nLogin to start your search immediately',
                 textAlign: TextAlign.center,
                 style: poppinsSemiBold.copyWith(
                   fontSize: 16.0,
@@ -41,13 +41,6 @@ class LoginScreen extends GetView<LoginController> {
                 hintText: 'UserName',
               ),
 
-              /// email field
-              const SizedBox(height: 16.0),
-              CustomTextField(
-                controller: controller.emailController,
-                hintText: 'Email',
-              ),
-
               /// password field
               const SizedBox(height: 16.0),
               CustomTextField(
@@ -55,28 +48,40 @@ class LoginScreen extends GetView<LoginController> {
                 hintText: 'Password',
               ),
 
-              /// confirm password field
-              const SizedBox(height: 16.0),
-              CustomTextField(
-                controller: controller.confirmPasswordController,
-                hintText: 'Confirm Password',
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Forgot Password?',
+                      textAlign: TextAlign.center,
+                      style: poppinsSemiBold.copyWith(
+                        fontSize: 12.0,
+                        color: AppColors.blueColor,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
               ),
 
-              /// register account button
-              const SizedBox(height: 24.0),
+              /// login button
+              const SizedBox(height: 8.0),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: screenHeight(context) * 0.024),
                 child: CustomButton(
                   onTap: () {},
-                  btnText: 'Register Account',
+                  btnText: 'Login',
                 ),
               ),
 
-              /// login here button
+              /// register here button
               const SizedBox(height: 24.0),
               Text(
-                'Already have an account?',
+                'Don\'t have an account? ',
                 textAlign: TextAlign.center,
                 style: poppinsSemiBold.copyWith(
                   fontSize: 12.0,
@@ -84,9 +89,11 @@ class LoginScreen extends GetView<LoginController> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(const SignupScreen());
+                },
                 child: Text(
-                  'Log In Here',
+                  'Register Here',
                   textAlign: TextAlign.center,
                   style: poppinsSemiBold.copyWith(
                     fontSize: 12.0,
