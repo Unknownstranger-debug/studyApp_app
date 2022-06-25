@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pinput/pinput.dart';
 
 import '../../../constants/exports.dart';
 import '../../../controllers/forgot_pass_controller.dart';
-import 'otp_screen.dart';
 
-class ForgotPasswordScreen extends GetView<ForgotPasswordController> {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+class OTPScreen extends GetView<ForgotPasswordController> {
+  const OTPScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,9 +70,9 @@ class ForgotPasswordScreen extends GetView<ForgotPasswordController> {
               SizedBox(height: screenHeight(context) * 0.04),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: screenHeight(context) * 0.024),
+                    horizontal: screenHeight(context) * 0.036),
                 child: Text(
-                  'Enter your email and we will send you a confirmation code to reset your password',
+                  'Please enter the confirmation code that we send to your email.',
                   textAlign: TextAlign.center,
                   style: poppinsRegular.copyWith(
                     fontSize: 13.0,
@@ -83,25 +83,33 @@ class ForgotPasswordScreen extends GetView<ForgotPasswordController> {
 
               /// email field
               SizedBox(height: screenHeight(context) * 0.04),
-              CustomTextField(
-                controller: controller.emailController,
-                hintText: 'Email',
-                topContentPadding: 16.0,
-                prefixIcon: const Icon(
-                  Icons.mail,
-                  color: AppColors.greyColor,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.024),
+                child: Pinput(
+                  length: 4,
+                  closeKeyboardWhenCompleted: false,
+                  defaultPinTheme: PinTheme(
+                    height: 60.0,
+                    width: 50.0,
+                    textStyle: poppinsBold.copyWith(
+                      fontSize: 30.0,
+                      color: AppColors.blackColor,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5.0),
+                      color: AppColors.whiteColor,
+                    )
+                  ),
                 ),
               ),
 
               /// Next Button
-              SizedBox(height: screenHeight(context) * 0.03),
+              SizedBox(height: screenHeight(context) * 0.04),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: screenHeight(context) * 0.024),
+                    horizontal: screenHeight(context) * 0.036),
                 child: CustomButton(
-                  onTap: () {
-                    Get.to(const OTPScreen());
-                  },
+                  onTap: () {},
                   btnText: 'Next',
                 ),
               ),
