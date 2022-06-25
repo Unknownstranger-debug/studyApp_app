@@ -8,6 +8,8 @@ class CustomTextField extends StatelessWidget {
   final String? hintText;
   final bool? obscureText;
   final String? obscureCharacter;
+  final Widget? prefixIcon;
+  final double? topContentPadding;
 
   const CustomTextField({Key? key,
     required this.controller,
@@ -15,6 +17,8 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.obscureCharacter = '*',
+    this.prefixIcon,
+    this.topContentPadding = 0.0,
   }) : super(key: key);
 
   @override
@@ -25,13 +29,6 @@ class CustomTextField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          /*Text(headingText!,
-            style: poppinsRegular.copyWith(
-              fontSize: 16.0,
-              color: AppColors.whiteColor,
-            ),
-          ),
-          SizedBox(height: screenHeight(context) * 0.012),*/
           Container(
             height: 50,
             decoration: BoxDecoration(
@@ -53,8 +50,9 @@ class CustomTextField extends StatelessWidget {
               obscuringCharacter: obscureCharacter!,
               decoration: InputDecoration(
                 border: InputBorder.none,
-                contentPadding: const EdgeInsets.only(left: 16.0, bottom: 0.0),
+                contentPadding: EdgeInsets.only(left: 16.0, top: topContentPadding!),
                 hintText: hintText,
+                prefixIcon: prefixIcon,
                 hintStyle: poppinsRegular.copyWith(
                   fontSize: 13.0,
                   color: AppColors.greyColor,

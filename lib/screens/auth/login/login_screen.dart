@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../constants/exports.dart';
 import '../../../controllers/login_controller.dart';
+import '../forgot_password/forgot_pass_screen.dart';
 import '../signup/signup_screen.dart';
 
 class LoginScreen extends GetView<LoginController> {
@@ -55,7 +56,9 @@ class LoginScreen extends GetView<LoginController> {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 16.0),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(const ForgotPasswordScreen());
+                      },
                       child: Text(
                         'Forgot Password?',
                         textAlign: TextAlign.center,
