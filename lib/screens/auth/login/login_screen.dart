@@ -17,92 +17,95 @@ class LoginScreen extends GetView<LoginController> {
         child: SizedBox(
           height: screenHeight(context),
           width: screenWidth(context),
-          child: Column(
-            children: [
-              /// top logo
-              SizedBox(height: screenHeight(context) * 0.04),
-              Image.asset(AppImages.appLogo),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(bottom: 40.0),
+            child: Column(
+              children: [
+                /// top logo
+                SizedBox(height: screenHeight(context) * 0.04),
+                Image.asset(AppImages.appLogo),
 
-              /// register now texts
-              const SizedBox(height: 8.0),
-              Text(
-                'Welcome Back \nLogin to start your search immediately',
-                textAlign: TextAlign.center,
-                style: poppinsSemiBold.copyWith(
-                  fontSize: 16.0,
-                  color: AppColors.whiteColor,
+                /// register now texts
+                const SizedBox(height: 8.0),
+                Text(
+                  'Welcome Back \nLogin to start your search immediately',
+                  textAlign: TextAlign.center,
+                  style: poppinsSemiBold.copyWith(
+                    fontSize: 16.0,
+                    color: AppColors.whiteColor,
+                  ),
                 ),
-              ),
 
-              /// username field
-              const SizedBox(height: 16.0),
-              CustomTextField(
-                controller: controller.userNameController,
-                hintText: 'UserName',
-              ),
+                /// username field
+                const SizedBox(height: 16.0),
+                CustomTextField(
+                  controller: controller.userNameController,
+                  hintText: 'UserName',
+                ),
 
-              /// password field
-              const SizedBox(height: 16.0),
-              CustomTextField(
-                controller: controller.passwordController,
-                hintText: 'Password',
-              ),
+                /// password field
+                const SizedBox(height: 16.0),
+                CustomTextField(
+                  controller: controller.passwordController,
+                  hintText: 'Password',
+                ),
 
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Forgot Password?',
-                      textAlign: TextAlign.center,
-                      style: poppinsSemiBold.copyWith(
-                        fontSize: 12.0,
-                        color: AppColors.blueColor,
-                        decoration: TextDecoration.underline,
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 16.0),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password?',
+                        textAlign: TextAlign.center,
+                        style: poppinsSemiBold.copyWith(
+                          fontSize: 12.0,
+                          color: AppColors.blueColor,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
 
-              /// login button
-              const SizedBox(height: 8.0),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: screenHeight(context) * 0.024),
-                child: CustomButton(
-                  onTap: () {},
-                  btnText: 'Login',
+                /// login button
+                const SizedBox(height: 8.0),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: screenHeight(context) * 0.024),
+                  child: CustomButton(
+                    onTap: () {},
+                    btnText: 'Login',
+                  ),
                 ),
-              ),
 
-              /// register here button
-              const SizedBox(height: 24.0),
-              Text(
-                'Don\'t have an account? ',
-                textAlign: TextAlign.center,
-                style: poppinsSemiBold.copyWith(
-                  fontSize: 12.0,
-                  color: AppColors.whiteColor,
-                ),
-              ),
-              TextButton(
-                onPressed: () {
-                  Get.to(const SignupScreen());
-                },
-                child: Text(
-                  'Register Here',
+                /// register here button
+                const SizedBox(height: 24.0),
+                Text(
+                  'Don\'t have an account? ',
                   textAlign: TextAlign.center,
                   style: poppinsSemiBold.copyWith(
                     fontSize: 12.0,
                     color: AppColors.whiteColor,
-                    decoration: TextDecoration.underline,
                   ),
                 ),
-              ),
-            ],
+                TextButton(
+                  onPressed: () {
+                    Get.to(const SignupScreen());
+                  },
+                  child: Text(
+                    'Register Here',
+                    textAlign: TextAlign.center,
+                    style: poppinsSemiBold.copyWith(
+                      fontSize: 12.0,
+                      color: AppColors.whiteColor,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

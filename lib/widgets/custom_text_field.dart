@@ -44,7 +44,7 @@ class CustomTextField extends StatelessWidget {
             ),
             child: TextFormField(
               style: poppinsRegular.copyWith(
-                fontSize: 16.0,
+                fontSize: 14.0,
                 color: AppColors.blackColor,
               ),
               controller: controller,
