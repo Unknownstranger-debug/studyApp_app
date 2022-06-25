@@ -36,7 +36,7 @@ class CustomTextField extends StatelessWidget {
               color: AppColors.whiteColor,
               border: Border.all(
                 width: 1.0,
-                color: AppColors.primaryColor,
+                color: AppColors.blueColor,
               ),
             ),
             child: TextFormField(
