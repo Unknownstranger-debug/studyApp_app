@@ -12,6 +12,22 @@ class ProfileEditScreen extends GetView<ProfileEditController> {
     Get.put(ProfileEditController());
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
+
+      /// appbar
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_rounded,
+            color: AppColors.whiteColor,
+          ),
+        ),
+      ),
+
       body: SafeArea(
         child: SizedBox(
           height: screenHeight(context),
@@ -22,7 +38,7 @@ class ProfileEditScreen extends GetView<ProfileEditController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 /// profile details texts
-                SizedBox(height: screenHeight(context) * 0.05),
+                SizedBox(height: screenHeight(context) * 0.02),
                 Center(
                   child: Text(
                     'Profile Details',

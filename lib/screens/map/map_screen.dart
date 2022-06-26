@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_app/constants/exports.dart';
+import 'package:project_app/screens/contact_us/contact_us_screen.dart';
 import 'package:project_app/screens/setting/setting_screen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _MapScreenState extends State<MapScreen> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.bottomSheet(SettingScreen(),
+                            Get.bottomSheet(const SettingScreen(),
                             isScrollControlled: true,
                             );
                           },
@@ -113,7 +114,12 @@ class _MapScreenState extends State<MapScreen> {
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.bottomSheet(ContactUsScreen(),
+                          isScrollControlled: true,
+                          ignoreSafeArea: true,
+                        );
+                      },
                       borderRadius: BorderRadius.circular(8.0),
                       child: Ink(
                         height: 64.0,
