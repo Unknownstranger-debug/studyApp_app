@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constants/exports.dart';
+import '../../controllers/account_created_controller.dart';
 
-class AccountCreatedScreen extends StatelessWidget {
+class AccountCreatedScreen extends GetView<AccountCreatedController>{
   const AccountCreatedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.put(AccountCreatedController());
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
 
