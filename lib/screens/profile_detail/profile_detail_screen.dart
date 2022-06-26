@@ -138,7 +138,7 @@ class ProfileDetailScreen extends GetView<ProfileDetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(width: 16.0),
+                        const SizedBox(width: 16.0),
                         Expanded(
                           child: DropdownButton(
                             value: controller.selectedValue.value,
