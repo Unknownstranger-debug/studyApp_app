@@ -69,7 +69,9 @@ class _MapScreenState extends State<MapScreen> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.to(SettingScreen());
+                            Get.bottomSheet(SettingScreen(),
+                            isScrollControlled: true,
+                            );
                           },
                           borderRadius: BorderRadius.circular(8.0),
                           child: Ink(
