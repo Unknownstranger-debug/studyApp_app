@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_app/screens/dialogs/logout_dialog.dart';
 
 import '../../constants/exports.dart';
 import '../../controllers/profile_detail_controller.dart';
@@ -250,7 +251,12 @@ class ProfileDetailScreen extends GetView<ProfileDetailController> {
                         padding: EdgeInsets.symmetric(
                             horizontal: screenHeight(context) * 0.15),
                         child: CustomButton(
-                          onTap: () {},
+                          onTap: () {
+                            Get.defaultDialog(
+                              title: '',
+                              content: const LogoutDialog(),
+                            );
+                          },
                           btnText: 'Log Out',
                           btnColor: AppColors.redDarkColor,
                         ),
