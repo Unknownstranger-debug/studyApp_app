@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 import 'package:project_app/controllers/settings_controller.dart';
+import 'package:project_app/screens/profile_edit/profile_edit_screen.dart';
 
 import '../../constants/exports.dart';
 import 'components/setting_box.dart';
@@ -40,7 +41,9 @@ class SettingScreen extends GetView<SettingController> {
           /// account
           SizedBox(height: screenHeight(context) * 0.02),
           SettingBox(
-            onTap: () {},
+            onTap: () {
+              Get.to(const ProfileEditScreen());
+            },
             imagePath: AppImages.noPersonAvatar,
             texts: 'Account',
           ),
