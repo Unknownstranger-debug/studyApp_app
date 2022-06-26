@@ -10,7 +10,6 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-
   final Set<Marker> _markers = {};
 
   void _onMapCreated(GoogleMapController controller) {
@@ -28,22 +27,111 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
-
-      body: Stack(
-        children: [
-          SizedBox(
-            height: screenHeight(context),
-            width: screenWidth(context),
-            child: GoogleMap(
-              onMapCreated: _onMapCreated,
-              markers: _markers,
-              initialCameraPosition: const CameraPosition(
-                target: LatLng(30.587968, 60.814708),
-                //zoom: 5,
+      body: SizedBox(
+        height: screenHeight(context),
+        width: screenWidth(context),
+        child: Stack(
+          children: [
+            SizedBox(
+              height: screenHeight(context),
+              width: screenWidth(context),
+              child: GoogleMap(
+                onMapCreated: _onMapCreated,
+                markers: _markers,
+                zoomControlsEnabled: false,
+                initialCameraPosition: const CameraPosition(
+                  target: LatLng(30.587968, 60.814708),
+                  //zoom: 5,
+                ),
               ),
             ),
-          ),
-        ],
+            SafeArea(
+              child: SizedBox(
+                height: 80.0,
+                width: screenWidth(context),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Tampines',
+                        style: poppinsBold.copyWith(
+                          fontSize: 30.0,
+                          color: AppColors.blackColor,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {},
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Ink(
+                            height: 55.0,
+                            width: 55.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: AppColors.whiteColor,
+                            ),
+                            child: const Center(
+                              child: Icon(
+                                Icons.settings,
+                                color: AppColors.blackColor,
+                                size: 36.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.13),
+                    child: CustomButton(
+                      onTap: () {},
+                      btnText: 'Search',
+                      fontSize: 20.0,
+                    ),
+                  ),
+                  const SizedBox(height: 20.0),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Ink(
+                        height: 64.0,
+                        width: 64.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          color: AppColors.blackColor,
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.chat_bubble,
+                            color: AppColors.whiteColor,
+                            size: 36.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20.0),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
