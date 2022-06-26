@@ -18,9 +18,10 @@ class SplashScreen extends GetView<SplashController> {
         onTap: (){
           Get.to(const LoginScreen());
         },
-        child: SizedBox(
+        child: Container(
           height: screenHeight(context),
           width: screenWidth(context),
+          color: Colors.transparent,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

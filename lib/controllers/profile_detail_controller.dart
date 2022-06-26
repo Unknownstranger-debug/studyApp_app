@@ -8,4 +8,6 @@ class ProfileDetailController extends GetxController {
   TextEditingController strengthSubController = TextEditingController();
   TextEditingController weakSubController = TextEditingController();
   TextEditingController studyLocationController = TextEditingController();
+
+  RxString selectedValue = "Secondary School".obs;
 }
