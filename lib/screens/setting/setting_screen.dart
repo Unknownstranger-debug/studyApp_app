@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:project_app/controllers/settings_controller.dart';
 
 import '../../constants/exports.dart';
+import 'components/setting_box.dart';
 
 class SettingScreen extends GetView<SettingController> {
   const SettingScreen({Key? key}) : super(key: key);
@@ -35,8 +36,16 @@ class SettingScreen extends GetView<SettingController> {
               ),
             ),
           ),
+
+          /// account
           SizedBox(height: screenHeight(context) * 0.02),
-          settingBox(AppImages.noPersonAvatar, 'Account'),
+          SettingBox(
+            onTap: () {},
+            imagePath: AppImages.noPersonAvatar,
+            texts: 'Account',
+          ),
+
+          /// do not disturb
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
             child: Container(
@@ -84,48 +93,23 @@ class SettingScreen extends GetView<SettingController> {
               ),
             ),
           ),
-          settingBox(AppImages.bgImage, 'Change background  image'),
-          settingBox(AppImages.contactUs, 'Contact Us'),
 
+          /// change background image
+          SettingBox(
+            onTap: () {},
+            imagePath: AppImages.bgImage,
+            texts: 'Change background  image',
+          ),
+
+          /// contact us
+          SettingBox(
+            onTap: () {},
+            imagePath: AppImages.contactUs,
+            texts: 'Contact Us',
+          ),
           SizedBox(height: screenHeight(context) * 0.03),
         ],
       ),
     );
   }
-
-  Widget settingBox(imagePath, text) => Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-        child: Container(
-          padding: const EdgeInsets.all(12.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            border: Border.all(
-              color: AppColors.greyColor,
-              width: 1.0,
-            ),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image.asset(
-                imagePath!,
-                height: 40.0,
-                width: 40.0,
-                fit: BoxFit.fill,
-              ),
-              const SizedBox(width: 16.0),
-              Expanded(
-                child: Text(
-                  text!,
-                  style: poppinsSemiBold.copyWith(
-                    fontSize: 17.0,
-                    color: AppColors.whiteColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
 }
