@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 import '../../constants/exports.dart';
 import '../../controllers/profile_detail_controller.dart';
+import '../account_created/account_created_screen.dart';
+import '../map/map_screen.dart';
 
 class ProfileDetailScreen extends GetView<ProfileDetailController> {
   final bool isLogin;
@@ -232,7 +234,11 @@ class ProfileDetailScreen extends GetView<ProfileDetailController> {
                   padding: EdgeInsets.symmetric(
                       horizontal: screenHeight(context) * 0.024),
                   child: CustomButton(
-                    onTap: () {},
+                    onTap: () {
+                      isLogin == true
+                          ? Get.to(const MapScreen())
+                          : Get.to(const AccountCreatedScreen());
+                    },
                     btnText: 'Confirm Details',
                   ),
                 ),
