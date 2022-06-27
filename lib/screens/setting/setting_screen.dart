@@ -89,6 +89,59 @@ class SettingScreen extends GetView<SettingController> {
                       value: controller.toggleVal.value,
                       onToggle: (value) {
                         controller.toggleVal.value = value;
+                        controller.toggleVal.value == true
+                            ? Get.defaultDialog(
+                                title: '',
+                                content: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12.0),
+                                      child: Text(
+                                        'Turning this on will prevent others from finding you. '
+                                        'You sure you want continue',
+                                        textAlign: TextAlign.center,
+                                        style: poppinsRegular.copyWith(
+                                          fontSize: 13.0,
+                                          color: AppColors.blackColor,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        height: screenHeight(context) * 0.024),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 12.0),
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: CustomButton(
+                                              onTap: () {
+                                                controller.toggleVal.value = false;
+                                                Get.back();
+                                              },
+                                              btnText: 'No',
+                                              btnColor: AppColors.redDarkColor,
+                                              height: 42.0,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 12.0),
+                                          Expanded(
+                                            child: CustomButton(
+                                              onTap: () {},
+                                              btnText: 'Yes',
+                                              btnColor: AppColors.greenAccentColor,
+                                              height: 42.0,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : const SizedBox();
                       },
                     ),
                   ),
