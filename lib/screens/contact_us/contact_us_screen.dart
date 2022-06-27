@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:project_app/constants/exports.dart';
+import 'package:project_app/screens/contact_us/msg_inbox.dart';
 
 class ContactUsScreen extends StatelessWidget {
   ContactUsScreen({Key? key}) : super(key: key);
@@ -72,53 +74,58 @@ class ContactUsScreen extends StatelessWidget {
 
   Widget userBox(context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Container(
-          width: screenWidth(context),
-          padding: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
-            border: Border.all(
-              color: AppColors.greyColor,
-              width: 0.7,
+        child: GestureDetector(
+          onTap: (){
+            Get.to(MsgInboxScreen());
+          },
+          child: Container(
+            width: screenWidth(context),
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.0),
+              border: Border.all(
+                color: AppColors.greyColor,
+                width: 0.7,
+              ),
             ),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                height: 48.0,
-                width: 48.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0),
-                  color: AppColors.whiteColor,
-                  image: const DecorationImage(
-                    image: AssetImage(AppImages.noPersonAvatar),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  height: 48.0,
+                  width: 48.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.0),
+                    color: AppColors.whiteColor,
+                    image: const DecorationImage(
+                      image: AssetImage(AppImages.noPersonAvatar),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 10.0),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'User',
-                    style: poppinsSemiBold.copyWith(
-                      fontSize: 20.0,
-                      color: AppColors.whiteColor,
+                const SizedBox(width: 10.0),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'User',
+                      style: poppinsSemiBold.copyWith(
+                        fontSize: 20.0,
+                        color: AppColors.whiteColor,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Online',
-                    style: poppinsSemiBold.copyWith(
-                      fontSize: 10.0,
-                      color: AppColors.greyColor,
+                    Text(
+                      'Online',
+                      style: poppinsSemiBold.copyWith(
+                        fontSize: 10.0,
+                        color: AppColors.greyColor,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       );

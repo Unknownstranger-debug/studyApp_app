@@ -10,6 +10,8 @@ class CustomTextField extends StatelessWidget {
   final String? obscureCharacter;
   final Widget? prefixIcon;
   final double? topContentPadding;
+  final double? fieldPadding;
+  final double? textFieldHeight;
 
   const CustomTextField({Key? key,
     required this.controller,
@@ -19,18 +21,20 @@ class CustomTextField extends StatelessWidget {
     this.obscureCharacter = '*',
     this.prefixIcon,
     this.topContentPadding = 0.0,
+    this.fieldPadding = 0.024,
+    this.textFieldHeight = 50.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.024),
+      padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * fieldPadding!),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            height: 50,
+            height: textFieldHeight,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50.0),
               color: AppColors.whiteColor,
