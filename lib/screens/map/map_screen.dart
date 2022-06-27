@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_app/constants/exports.dart';
 import 'package:project_app/screens/contact_us/contact_us_screen.dart';
+import 'package:project_app/screens/searching/searching_screen.dart';
 import 'package:project_app/screens/setting/setting_screen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -193,7 +194,10 @@ class _MapScreenState extends State<MapScreen> {
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.07),
                                 child: CustomButton(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.back();
+                                    Get.to(SearchingScreen());
+                                  },
                                   btnText: 'Begin Search',
                                   btnColor: AppColors.blackColor,
                                 ),
