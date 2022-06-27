@@ -26,6 +26,20 @@ class _MapScreenState extends State<MapScreen> {
     });
   }
 
+  /// vision panel dropdown items
+  List<DropdownMenuItem<String>> get dropdownItems {
+    List<DropdownMenuItem<String>> menuItems = [
+      const DropdownMenuItem(value: "Location", child: Text("Location")),
+      const DropdownMenuItem(value: "Abcd", child: Text("Abcd")),
+      const DropdownMenuItem(value: "DEF", child: Text("DEF")),
+      const DropdownMenuItem(value: "GHIJ", child: Text("GHIJ")),
+      const DropdownMenuItem(value: "KLMN", child: Text("KLMN")),
+    ];
+    return menuItems;
+  }
+
+  String dropDownItemVal = 'Location';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +84,9 @@ class _MapScreenState extends State<MapScreen> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            Get.bottomSheet(const SettingScreen(),
-                            isScrollControlled: true,
+                            Get.bottomSheet(
+                              const SettingScreen(),
+                              isScrollControlled: true,
                             );
                           },
                           borderRadius: BorderRadius.circular(8.0),
@@ -103,9 +118,90 @@ class _MapScreenState extends State<MapScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.13),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: screenHeight(context) * 0.13),
                     child: CustomButton(
-                      onTap: () {},
+                      onTap: () {
+                        Get.defaultDialog(
+                          title: '',
+                          content: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0),
+                                child: Text(
+                                  'How do you want to find \nothers around you?',
+                                  textAlign: TextAlign.center,
+                                  style: poppinsSemiBold.copyWith(
+                                    fontSize: 15.0,
+                                    color: AppColors.blackColor,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: screenHeight(context) * 0.01),
+                              Container(
+                                height: 50,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: screenHeight(context) * 0.024),
+                                width: screenWidth(context),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  color: AppColors.whiteColor,
+                                  border: Border.all(
+                                    width: 1.0,
+                                    color: AppColors.blueColor,
+                                  ),
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(width: 16.0),
+                                    Expanded(
+                                      child: DropdownButton(
+                                        value: dropDownItemVal,
+                                        items: dropdownItems,
+                                        hint: Text(
+                                          'Location',
+                                          style: poppinsRegular.copyWith(
+                                            color: AppColors.greyColor,
+                                            fontSize: 13.0,
+                                          ),
+                                        ),
+                                        style: poppinsRegular.copyWith(
+                                          color: AppColors.blackColor,
+                                          fontSize: 13.0,
+                                        ),
+                                        underline: const SizedBox(),
+                                        icon: const Icon(
+                                            Icons
+                                                .arrow_drop_down_circle_outlined,
+                                            color: AppColors.primaryColor),
+                                        isExpanded: true,
+                                        onChanged: (String? value) {
+                                          setState(() {
+                                            dropDownItemVal = value!;
+                                          });
+                                        },
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8.0),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: screenHeight(context) * 0.024),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: screenHeight(context) * 0.07),
+                                child: CustomButton(
+                                  onTap: () {},
+                                  btnText: 'Begin Search',
+                                  btnColor: AppColors.blackColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                       btnText: 'Search',
                       fontSize: 20.0,
                     ),
@@ -115,7 +211,8 @@ class _MapScreenState extends State<MapScreen> {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
-                        Get.bottomSheet(ContactUsScreen(),
+                        Get.bottomSheet(
+                          ContactUsScreen(),
                           isScrollControlled: true,
                           ignoreSafeArea: true,
                         );
