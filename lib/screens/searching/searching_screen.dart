@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:project_app/constants/app_colors.dart';
+import 'package:get/get.dart';
 import 'package:project_app/constants/exports.dart';
+import 'package:project_app/screens/person_found/person_found_screen.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class SearchingScreen extends StatefulWidget {
@@ -12,10 +15,16 @@ class SearchingScreen extends StatefulWidget {
 
 class _SearchingScreenState extends State<SearchingScreen> {
   @override
+  initState() {
+    super.initState();
+
+    Timer(const Duration(seconds: 7), () => Get.to(const PersonFoundScreen()));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-
       body: SizedBox(
         height: screenHeight(context),
         width: screenWidth(context),
@@ -23,8 +32,8 @@ class _SearchingScreenState extends State<SearchingScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-            Text('Beginning \nSearch',
+            Text(
+              'Beginning \nSearch',
               textAlign: TextAlign.center,
               style: poppinsSemiBold.copyWith(
                 fontSize: 20.0,
@@ -32,7 +41,6 @@ class _SearchingScreenState extends State<SearchingScreen> {
               ),
             ),
             const SizedBox(height: 32.0),
-
             Stack(
               children: [
                 Center(
@@ -64,10 +72,9 @@ class _SearchingScreenState extends State<SearchingScreen> {
                 ),
               ],
             ),
-
-            SizedBox(height: 50.0),
-
-            Text('Suggestion: \nTurn on notification so that \nwe can notify you when \nwe find someone',
+            const SizedBox(height: 50.0),
+            Text(
+              'Suggestion: \nTurn on notification so that \nwe can notify you when \nwe find someone',
               textAlign: TextAlign.center,
               style: poppinsLight.copyWith(
                 fontSize: 15.0,
